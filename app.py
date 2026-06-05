@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask_cors import CORS
 import os
 import yt_dlp
 import traceback
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for the Netlify frontend
 DOWNLOAD_DIR = "downloads"
 
 if not os.path.exists(DOWNLOAD_DIR):
@@ -23,11 +25,6 @@ def download():
     ydl_opts = {
         'format': 'bestaudio/best',
         'outtmpl': f'{DOWNLOAD_DIR}/%(title)s.%(ext)s',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
         'noplaylist': True,
         'quiet': True,
         'default_search': 'ytsearch1',
@@ -44,16 +41,14 @@ def download():
             
             title = info.get('title')
             
-            # Determine the final mp3 filename
+            # Determine the final downloaded filename
             filename = ydl.prepare_filename(info)
-            base, _ = os.path.splitext(filename)
-            mp3_filename = base + ".mp3"
-            mp3_basename = os.path.basename(mp3_filename)
+            basename = os.path.basename(filename)
             
             return jsonify({
                 "success": True, 
                 "title": title,
-                "file_path": f"/downloads/{mp3_basename}"
+                "file_path": f"/downloads/{basename}"
             })
     except Exception as e:
         traceback.print_exc()

@@ -4,13 +4,14 @@
   # No build command is necessary if you are just serving the static frontend
   command = "echo 'Deploying TunesDrop to Netlify'"
 
-# NOTE: Since your backend is written in Python (for Firebase or local Flask), 
-# Netlify will only host your frontend static files by default.
-# If you deploy your Firebase Function, you can uncomment and update the redirect below 
-# to route /api/download calls from the frontend to your live Firebase backend.
+# NOTE: The frontend cannot function without the Python backend.
+# I have added a `render.yaml` to your code. 
+# You can deploy the backend by logging into Render.com and connecting this GitHub repo.
+# Once Render gives you a backend URL (like https://tunesdrop-backend.onrender.com),
+# uncomment the lines below and replace the URL!
 
 # [[redirects]]
 #   from = "/api/*"
-#   to = "https://us-central1-<YOUR_FIREBASE_PROJECT_ID>.cloudfunctions.net/:splat"
+#   to = "https://<YOUR_RENDER_URL_HERE>/:splat"
 #   status = 200
 #   force = true

@@ -1,3 +1,5 @@
 yt-dlp
 rich
 Flask
+flask-cors
+gunicorn

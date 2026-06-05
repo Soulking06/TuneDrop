@@ -30,6 +30,11 @@ def download():
         'default_search': 'ytsearch1',
     }
     
+    # If a cookies.txt file exists (e.g., provided securely on the server), use it
+    # This prevents YouTube from blocking the server as a bot.
+    if os.path.exists('cookies.txt'):
+        ydl_opts['cookiefile'] = 'cookies.txt'
+    
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             # Extract info and download

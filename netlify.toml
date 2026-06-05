@@ -1,0 +1,16 @@
+[build]
+  # Directory that contains the deploy-ready HTML files and assets
+  publish = "public"
+  # No build command is necessary if you are just serving the static frontend
+  command = "echo 'Deploying TunesDrop to Netlify'"
+
+# NOTE: Since your backend is written in Python (for Firebase or local Flask), 
+# Netlify will only host your frontend static files by default.
+# If you deploy your Firebase Function, you can uncomment and update the redirect below 
+# to route /api/download calls from the frontend to your live Firebase backend.
+
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://us-central1-<YOUR_FIREBASE_PROJECT_ID>.cloudfunctions.net/:splat"
+#   status = 200
+#   force = true

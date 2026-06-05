@@ -74,7 +74,7 @@ class MusicDownloader:
 
 
 def main():
-    console.print(Panel.fit("[bold magenta]🎵 TuneDrop 🎵[/bold magenta]\n[dim]Downloads MP3s by simply searching the song name[/dim]", border_style="magenta"))
+    console.print(Panel.fit("[bold magenta]🎵 TunesDrop 🎵[/bold magenta]\n[dim]Downloads MP3s by simply searching the song name[/dim]", border_style="magenta"))
     
     downloader = MusicDownloader()
     

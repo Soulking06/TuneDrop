@@ -22,7 +22,7 @@ def start_server():
 
 def main():
     print("====================================")
-    print("🎵 TuneDrop Server 🎵")
+    print("🎵 TunesDrop Server 🎵")
     print("Starting up the local environment...")
     print("====================================\n")
     
@@ -37,7 +37,7 @@ def main():
     local_url = "http://127.0.0.1:5001"
     mobile_url = f"http://{local_ip}:5001"
     
-    print("✅ TuneDrop is running!")
+    print("✅ TunesDrop is running!")
     print(f"🌐 Local Address (this Mac): {local_url}")
     
     if local_ip != "127.0.0.1":
@@ -59,7 +59,7 @@ def main():
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
-        print("\n🛑 Shutting down TuneDrop... Goodbye!")
+        print("\n🛑 Shutting down TunesDrop... Goodbye!")
 
 if __name__ == "__main__":
     main()

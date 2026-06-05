@@ -59,7 +59,7 @@ private val CardBorder = Color(0x33FF007F)
 /**
  * Smart IP/URL utility that completes missing protocols and ports.
  * Example: "192.168.1.5" -> "http://192.168.1.5:5001"
- * Example: "tunedrop.web.app" -> "https://tunedrop.web.app"
+ * Example: "tunesdrop.web.app" -> "https://tunesdrop.web.app"
  */
 fun parseUrl(input: String): String {
   var url = input.trim()
@@ -92,7 +92,7 @@ fun MainScreen(
   modifier: Modifier = Modifier,
 ) {
   val context = LocalContext.current
-  val prefs: SharedPreferences = remember { context.getSharedPreferences("tunedrop_prefs", Context.MODE_PRIVATE) }
+  val prefs: SharedPreferences = remember { context.getSharedPreferences("tunesdrop_prefs", Context.MODE_PRIVATE) }
 
   // Load saved connection URL, defaulting to local emulator URL
   var serverUrl by remember {
@@ -161,7 +161,7 @@ fun MainScreen(
                 val cookies = CookieManager.getInstance().getCookie(url)
                 addRequestHeader("cookie", cookies)
                 addRequestHeader("User-Agent", userAgent)
-                setDescription("Downloading track from TuneDrop...")
+                setDescription("Downloading track from TunesDrop...")
                 val guessedFileName = URLUtil.guessFileName(url, contentDisposition, mimetype)
                 setTitle(guessedFileName)
                 allowScanningByMediaScanner()
@@ -238,7 +238,7 @@ fun MainScreen(
           horizontalAlignment = Alignment.CenterHorizontally
         ) {
           Text(
-            text = "TuneDrop",
+            text = "TunesDrop",
             fontSize = 32.sp,
             fontWeight = FontWeight.ExtraBold,
             color = NeonPink,
@@ -350,7 +350,7 @@ fun MainScreen(
         onDismissRequest = { showSettings = false },
         title = {
           Text(
-            text = "TuneDrop Server Config",
+            text = "TunesDrop Server Config",
             fontWeight = FontWeight.Bold,
             color = Color.White
           )

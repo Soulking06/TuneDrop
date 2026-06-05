@@ -44,6 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ song_name: songName })
             });
 
+            // Check if the response is actually JSON before parsing
+            const contentType = response.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+                // If it's HTML (like a Netlify 404 page), it will throw the string error if we try to parse it
+                throw new Error("Backend API not found. The frontend is hosted, but the backend is not connected.");
+            }
+
             const data = await response.json();
 
             if (response.ok && data.success) {

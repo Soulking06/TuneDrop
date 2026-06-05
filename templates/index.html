@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuneDrop | Music Downloader</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="glass-container">
+        <header>
+            <h1 class="glow-text">TuneDrop</h1>
+            <p>Download any track instantly</p>
+        </header>
+
+        <main>
+            <div class="search-box">
+                <input type="text" id="song-input" placeholder="Enter exact song name..." autocomplete="off">
+                <button id="download-btn" class="exotic-btn">
+                    <span class="btn-text">Grab Track</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+
+            <div id="status-area" class="hidden">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+                <p id="status-text">Searching the web...</p>
+            </div>
+
+            <div id="result-area" class="hidden glass-card">
+                <h3 id="result-title">Song Title</h3>
+                <div class="audio-container">
+                    <audio id="audio-player" controls>
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <a id="download-link" href="#" download class="download-direct-btn">Save to Device</a>
+            </div>
+            
+            <div id="error-area" class="hidden">
+                <p id="error-text">Failed to download the song.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
